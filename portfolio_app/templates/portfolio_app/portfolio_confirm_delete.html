@@ -1,0 +1,11 @@
+{% extends 'portfolio_app/base_template.html' %}
+
+{% block content %}
+  <h1>Are you sure you want to delete "{{ object }}"?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm"class="btn btn-primary">
+    <a href="{% url 'student-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+  
+{% endblock %}

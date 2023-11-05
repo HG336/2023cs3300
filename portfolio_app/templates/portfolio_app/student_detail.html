@@ -14,6 +14,23 @@
 
 <p><strong>Portfolio:<a href="{{ student.portfolio.get_absolute_url }}">{{ student.portfolio.title }} </a> 
 
+
+{% if student.portfolio %}
+    <p><strong>Portfolio:</strong><a href="{{ student.portfolio.get_absolute_url }}">{{ student.portfolio.title }}</a></p>
+    <a href="{% url 'portfolio-delete' student.portfolio.id %}">Delete</a>
+    <a href="{% url 'portfolio-update' student.portfolio.id %}">Change</a>
+{% else %}
+    <p>This student does not have a portfolio yet.</p>
+    <!-- Add a link to create a portfolio for the student -->
+    <a href="{% url 'portfolio-add' %}">Create Portfolio</a>
+{% endif %}
+
+<form action="{% url 'student-delete' student.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete Student" />
+</form>
+
+
  
 
 {% endblock %} 

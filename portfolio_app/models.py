@@ -7,6 +7,8 @@ class Portfolio(models.Model):
     title = models.CharField(max_length=200)
     contact_email = models.EmailField(default="default@email.com")
     is_active = models.BooleanField(default=True)
+    
+    
 
 
     def __str__(self):
@@ -100,8 +102,8 @@ class ProjectsInPortfolio(models.Model):
 
  
 
-class Meta: 
+    class Meta: 
 
-#ensures that each project is associated with only one portfolio 
+    #ensures that each project is associated with only one portfolio 
 
-    unique_together = ('portfolio', 'project') 
+        unique_together = ('portfolio', 'project') 

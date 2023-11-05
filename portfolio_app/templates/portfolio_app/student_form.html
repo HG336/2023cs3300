@@ -1,0 +1,11 @@
+{% extends 'portfolio_app/base_template.html' %}
+
+{% block content %}
+    <h2>Add Student</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'student-list' %}">Back to List</a>
+{% endblock %}

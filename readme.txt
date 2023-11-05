@@ -1,2 +1,1 @@
- .\djvenv\scripts\activate 
- python manage.py runserver 
+.\djvenv\scripts\activate
